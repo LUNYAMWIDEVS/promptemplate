@@ -7,6 +7,7 @@ from helpers.gsheet.utils import execute_gsheet_formula
 # Create your models here.
 
 
+
 class ToneOfVoice(BaseModel):
     name = models.CharField(max_length=255)
     description = models.TextField()
@@ -14,13 +15,22 @@ class ToneOfVoice(BaseModel):
     def __str__(self) -> str:
         return self.name
 
+class Role(BaseModel):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+
+    def __str__(self) -> str:
+        return self.name
 
 class Prompt(BaseModel):
     name = models.CharField(max_length=50)
     data = models.JSONField(default=dict)
+    role = models.ForeignKey(Role,on_delete=models.CASCADE, 
+                                      null=True, blank=True)
     text_data = models.TextField(default='')
     tone_of_voice = models.ForeignKey(ToneOfVoice,on_delete=models.CASCADE, 
                                       null=True, blank=True)
+
     product = models.ForeignKey(Product,on_delete=models.CASCADE, 
                                       null=True, blank=True)
     index = models.IntegerField(default=1)
