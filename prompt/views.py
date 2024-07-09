@@ -42,7 +42,7 @@ from langchain.agents import AgentExecutor
 from langchain.text_splitter import RecursiveCharacterTextSplitter, SentenceTransformersTokenTextSplitter
 from langchain_community.agent_toolkits import create_sql_agent
 from langchain_openai import ChatOpenAI
-from .constants import MSSQL_AGENT_FORMAT_INSTRUCTIONS,MSSQL_AGENT_PREFIX,QUESTION_SUFFIX
+from .constants import MSSQL_AGENT_FORMAT_INSTRUCTIONS,MSSQL_AGENT_PREFIX
 
 
 from crewai_tools import DirectoryReadTool, FileReadTool, SerperDevTool,BaseTool
